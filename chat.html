@@ -1,0 +1,199 @@
+<script>
+var padid = 'uw75e059nykuform'
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("9_Y2_hLShrQ9-Msyy");
+   })();
+</script>
+<style>
+.rb {
+  animation: colorRotate 3s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+    background-color: #6666ff;
+  }
+  10% {
+    background-color: #0099ff;
+  }
+  50% {
+    background-color: #00ff00;
+  }
+  75% {
+    background-color: #ff3399;
+  }
+  100% {
+    background-color: #6666ff;
+  }
+}
+.rbb {
+  animation: colorRotatee 3s linear 0s infinite;
+}
+@keyframes colorRotatee {
+  from {
+    border: 2px solid #6666ff;
+  }
+  10% {
+    border: 2px solid #0099ff;
+  }
+  50% {
+    border: 2px solid #00ff00;
+  }
+  75% {
+    border: 2px solid #ff3399;
+  }
+  100% {
+    border: 2px solid #6666ff;
+  }
+}
+body {
+    background-color: black;
+    color: white;
+    overflow: scroll;
+    margin: 0;
+}
+button {
+    border-radius: 15px;
+}
+input {
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+iframe {
+    border: 0px solid white;
+}
+a {
+    color: white; 
+    text-decoration: none;
+}
+p {
+    color: white; 
+    text-decorations: none;
+}
+#respbox {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0px;
+  overflow: scroll;
+  height: 85%;
+  scroll: 100%;
+  border: 1px solid white;
+  width: 40%;
+  border-radius: 30px;
+}
+h3 {
+    font-family: oxygen;
+}
+h4 {
+    font-family: oxygen;
+}
+</style>
+<div style="display: none;">
+<head>
+    <title>CharMedia</title>
+    <script type="text/javascript" src="https://www.authpro.com/auth/depblocker/?action=pp"></script>
+</head>
+</div>
+<p>Users online:</p>
+<script id="mo" type="text/javascript" src="https://www.authpro.com/auth/depblocker/?action=members_online_list">
+</script>
+<a href="https://www.authpro.com/auth/depblocker/?action=logout" style="float: right;">Logout</a>
+<script>
+function filter(chat) {
+    if (login === "chargyarados") {
+        cusswords = ["wkjrdiufhrwuhfiurygvuhueh", "fh3hwcnekrvnvutheruifoi"]
+        return chat;
+    } else {
+    var cusswords = ["cum", "sex", "porn", "pron", "p orn", "po rn", "por n", "p o r n", "UwU", "uwu", "fuck", "bitch", "shit", "FUCK", "BITCH", "SHIT", "CUM", "SEX", "PORN", "PRON", "nigga", "nigger", "NIGGA", "NIGGER", "balls", "BALLS", "nuts", "NUTS"]
+    var chat; // define the chat var which is the function parameter
+    chat = chat.replace(/[^\x00-\x7F]/g, "");
+    for (x in chat.split(" ")) {
+        for(i=0; i < cusswords.length; i++) {
+            var length = String(cusswords[i]).length;
+            var characters = "";
+            for(u=0; u < length; u++) {
+                characters = String(characters) + String("*");
+            }
+            chat = chat.replace(String(cusswords[i]), String(characters));
+        }
+    }
+    return chat;
+    }
+}
+function sendmail() {
+    emailjs.send("mail","template_9n1knjk",{
+    from_name: "Chat",
+    message: login + ': ' + document.getElementById('subj').value,
+    email: "2024598@apps.nsd.org"
+    });
+}
+if (login === "chargyarados") {
+    var role = "CHAT MAKER | ";
+}
+function func() {
+    getdata(); 
+    document.getElementById('respbox').innerHTML = ''; for (var x of calresp.included) { document.getElementById('respbox').innerHTML += ('<h4>' + '</h4>' + '<h3>' + x.attributes.content.subject + '</h3>'); if (x.attributes.content.bodyHtml.replace(/<\/?[^>]+(>|$)/g, "") === "r") {document.body.innerHTML = '<meta http-equiv="refresh" content="1">'};};
+    
+}
+setInterval(func, 1000);
+var varr = `<div><input id="subj" placeholder="subject"><input id="budy" placeholder="body"><button onclick="send(document.getElementById('subj').value,document.getElementById('budy').value)">Create Post</button></div>`
+var calresp = "";
+function send(sub,main,attach) {
+fetch('https://api.padlet.dev/v1/boards/' + padid + '/posts', {
+  method: 'POST',
+  headers: {
+    'X-Api-Key': 'pdltp_6abf47c09bf09b24f9441790bf08ce691704f13def6a155d101025963d1a1dccad1858',
+    'accept': 'application/vnd.api+json',
+    'content-type': 'application/vnd.api+json'
+  },
+  body: JSON.stringify({
+    data: {
+      type: 'post',
+      attributes: {
+        content: {
+          subject: sub,
+          body: main,
+          attachment: {
+            url: attach
+          }
+        }
+      }
+    }
+  })
+})
+};
+function getdata() {
+fetch('https://api.padlet.dev/v1/boards/' + padid + '?include=posts%2Csections', {
+  headers: {
+    'X-Api-Key': 'pdltp_6abf47c09bf09b24f9441790bf08ce691704f13def6a155d101025963d1a1dccad1858',
+    'accept': 'application/vnd.api+json'
+  }
+  }).then(response => response.text()).then(result => calresp = JSON.parse(result))
+};
+function funcc() {
+    let currentDate = new Date();
+    let time = currentDate.getHours() + ":" + currentDate.getMinutes();
+    if (document.getElementById('subj').value === "" || document.getElementById('subj').value === " " || document.getElementById('subj').value === "  ") {
+        console.log("not allowed");
+    } else {
+        sendmail();
+        send(time + " - " + role + login + ': ' + filter(document.getElementById('subj').value),filter(document.getElementById('budy').value)); getdata(); document.getElementById('respbox').innerHTML = ''; for (var x of calresp.included) { document.getElementById('respbox').innerHTML += ('<h4>' + x.attributes.content.bodyHtml + '</h4>' + '<h3>' + x.attributes.content.subject + '</h3>'); document.getElementById('subj').value = ""; document.getElementById('budy').value = "";};
+    }
+}
+function gett() {
+    getdata(); document.getElementById('respbox').innerHTML = ''; for (var x of calresp.included) { document.getElementById('respbox').innerHTML += ('<h4>' + x.attributes.content.bodyHtml + '</h4>' + '<h3>' + x.attributes.content.subject + '</h3>'); };
+}
+</script>
+<body onkeydown="if (event.key == 'Alt'){document.getElementById('subj').select();}else{}" onload="gett();">
+    <div><iframe style="float: right; border-radius: 30px;" height="85%" width="50%" src="https://padlet.com/embed/tl5g6exd7q0hik4r"></iframe>
+    <div id="respbox" class="rbb"></div>
+    </div>
+    <div><input class="rbb" id="subj" value="" onkeydown="if (event.key == 'Enter'){funcc();}else{}" size="30" style="height:30px;" placeholder="Message"><input id="budy" onkeydown="if (event.key == 'Enter'){funcc();}else{}" placeholder="body" style="display:none;" ><button class="rb" size="30" style="height:30px;" onclick="funcc();">Create Post</button></div>
+</body>
